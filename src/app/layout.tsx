@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${jetbrainsMono.variable}`}>
-      <body className="bg-background text-foreground font-mono antialiased max-w-[90%] md:max-w-[80%] mx-auto min-h-screen">
+      <body className="bg-background text-foreground font-mono antialiased max-w-[90%] md:max-w-[80%] mx-auto min-h-screen flex flex-col">
         {children}
       </body>
     </html>
