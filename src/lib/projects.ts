@@ -9,7 +9,7 @@ export type Project = {
     alt: string;
   };
   description: string;
-  isFeatured: boolean;
+  isFeatured?: boolean;
 };
 
 export const projects: Project[] = [
@@ -24,7 +24,7 @@ export const projects: Project[] = [
       alt: "flutter image",
     },
     description: "Placeholder",
-    isFeatured: false,
+    isFeatured: true,
   },
   {
     slug: "gpu-price-scraper",
@@ -37,7 +37,7 @@ export const projects: Project[] = [
       alt: "gpu image",
     },
     description: "Placeholder",
-    isFeatured: false,
+    isFeatured: true,
   },
   {
     slug: "library-manager",
@@ -50,6 +50,7 @@ export const projects: Project[] = [
       alt: "library",
     },
     description: "Placeholder",
-    isFeatured: false,
   },
 ];
+
+export const featuredProjects = projects.filter((p) => p.isFeatured);
