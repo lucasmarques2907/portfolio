@@ -1,3 +1,7 @@
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
+
 export type Project = {
   slug: string;
   title: string;
@@ -8,49 +12,37 @@ export type Project = {
     src: string;
     alt: string;
   };
-  description: string;
+  summary: string;
+  content: string;
   isFeatured?: boolean;
 };
 
-export const projects: Project[] = [
-  {
-    slug: "cep-fetcher",
-    title: "CEP Fetcher",
-    createdAt: "2025-06-25",
-    github: "https://github.com/lucasmarques2907/cep_fetcher",
-    tags: ["dart", "flutter", "github-actions"],
-    image: {
-      src: "/projects/cep-fetcher.png",
-      alt: "flutter image",
-    },
-    description: "Placeholder",
-    isFeatured: true,
-  },
-  {
-    slug: "gpu-price-scraper",
-    title: "GPU Price Scraper",
-    createdAt: "2026-08-28",
-    github: "https://github.com/lucasmarques2907/gpu-price-scraper",
-    tags: ["python", "cli"],
-    image: {
-      src: "/projects/gpu-price-scraper.jpg",
-      alt: "gpu image",
-    },
-    description: "Placeholder",
-    isFeatured: true,
-  },
-  {
-    slug: "library-manager",
-    title: "Library Manager",
-    createdAt: "2026-07-05",
-    github: "https://github.com/lucasmarques2907/library_manager",
-    tags: ["react", "typescript", "tailwindcss"],
-    image: {
-      src: "/projects/library-manager.jpeg",
-      alt: "library",
-    },
-    description: "Placeholder",
-  },
-];
+const CONTENT_DIR = path.join(process.cwd(), "content/projects");
 
+function readProjects(): Project[] {
+  const files = fs
+    .readdirSync(CONTENT_DIR)
+    .filter((file) => file.endsWith(".md"));
+
+  const items = files.map((file) => {
+    const raw = fs.readFileSync(path.join(CONTENT_DIR, file), "utf8");
+    const { data, content } = matter(raw);
+
+    return {
+      slug: file.replace(/\.md$/, ""),
+      title: data.title,
+      createdAt: data.createdAt,
+      github: data.github,
+      tags: data.tags ?? [],
+      image: { src: data.image, alt: data.imageAlt ?? "" },
+      summary: data.summary,
+      content,
+      isFeatured: data.isFeatured ?? false,
+    } satisfies Project;
+  });
+
+  return items.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
+export const projects = readProjects();
 export const featuredProjects = projects.filter((p) => p.isFeatured);

@@ -42,7 +42,7 @@ export function ProjectCard({
         </div>
 
         <p className="mt-2 line-clamp-3 text-sm text-foreground/80">
-          {project.description}
+          {project.summary}
         </p>
 
         <div className="mt-auto flex items-center gap-2 pt-3">

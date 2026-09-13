@@ -1,6 +1,7 @@
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { TagChip } from "@/components/TagChip";
 import { formatDate } from "@/lib/format";
+import { markdownToHtml } from "@/lib/markdown";
 import { projects } from "@/lib/projects";
 import { CalendarDays, ChevronLeft, Tag } from "lucide-react";
 import type { Metadata } from "next";
@@ -29,7 +30,7 @@ export async function generateMetadata({
 
   return {
     title: project.title,
-    description: project.description,
+    description: project.summary,
   };
 }
 
@@ -42,6 +43,8 @@ export default async function ProjectPage({
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) notFound();
+
+  const html = await markdownToHtml(project.content);
 
   return (
     <main className="flex-1 py-8 px-0 md:px-5">
@@ -109,9 +112,7 @@ export default async function ProjectPage({
 
         <div className="my-6 border border-surface" />
 
-        <p className="whitespace-pre-line leading-relaxed text-foreground/80">
-          {project.description}
-        </p>
+        <div className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
       </article>
     </main>
   );
