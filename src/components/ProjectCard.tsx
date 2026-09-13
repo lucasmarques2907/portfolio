@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Project } from "@/lib/projects";
 import { TagChip } from "./TagChip";
 import { Tag } from "lucide-react";
+import { formatDate } from "@/lib/format";
 
 export function ProjectCard({
   project,
@@ -11,11 +12,6 @@ export function ProjectCard({
   project: Project;
   priority?: boolean;
 }) {
-  function formatDate(date: string) {
-    const [year, month, day] = date.split("-");
-    return `${day}/${month}/${year}`;
-  }
-
   return (
     <Link
       href={`/projects/${project.slug}`}
@@ -50,7 +46,10 @@ export function ProjectCard({
         </p>
 
         <div className="mt-auto flex items-center gap-2 pt-3">
-         <Tag className="size-3.5 shrink-0 text-foreground stroke-2"/>
+          <Tag
+            className="size-3.5 shrink-0 text-foreground stroke-2"
+            aria-hidden
+          />
           <ul className="flex h-5 flex-wrap gap-1.5 overflow-hidden">
             {project.tags.map((tag) => (
               <TagChip key={tag} tag={tag} />

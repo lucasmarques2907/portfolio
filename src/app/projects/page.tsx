@@ -4,9 +4,9 @@ import { Folders } from "lucide-react";
 
 export default function ProjectsPage() {
   return (
-    <main className="flex-1 pt-8 px-0 md:px-5">
+    <main className="flex-1 py-8 px-0 md:px-5">
       <div className="flex items-center gap-3 text-3xl font-bold mb-8">
-        <Folders className="text-primary" />
+        <Folders className="text-primary" aria-hidden />
         <h1 className=" text-foreground">Projetos</h1>
       </div>
 
