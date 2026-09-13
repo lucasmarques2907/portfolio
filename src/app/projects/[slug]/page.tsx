@@ -20,7 +20,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
 
-  if (!project) return {};
+  if (!project) {
+    return {
+      title: "404",
+      description: "Essa página não existe.",
+    };
+  }
 
   return {
     title: project.title,

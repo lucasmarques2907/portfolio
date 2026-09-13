@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -10,14 +11,18 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Placeholder title",
-  description: "Portfolio",
+  title: {
+    default: "Lucas Vinícius Marques",
+    template: "%s | Lucas Vinícius Marques",
+  },
+  description: "...",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${jetbrainsMono.variable}`}>
       <body className="bg-background text-foreground font-mono antialiased max-w-[90%] md:max-w-[80%] mx-auto min-h-screen flex flex-col">
+        <Navbar />
         {children}
         <Footer />
       </body>
