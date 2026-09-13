@@ -14,3 +14,17 @@
 :root {
   color-scheme: dark;
 }
+
+.link {
+  color: var(--color-primary);
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 4px;
+  transition: color 150ms, background-color 150ms;
+}
+
+.link:hover {
+  text-decoration-line: none;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}

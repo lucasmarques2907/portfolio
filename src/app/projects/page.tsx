@@ -1,6 +1,12 @@
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/lib/projects";
 import { Folders } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projetos",
+  description: "Todos os meus projetos.",
+};
 
 export default function ProjectsPage() {
   return (
