@@ -2,7 +2,7 @@ import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { TagChip } from "@/components/TagChip";
 import { formatDate } from "@/lib/format";
 import { projects } from "@/lib/projects";
-import { CalendarDaysIcon, ChevronLeft, Tag } from "lucide-react";
+import { CalendarDays, ChevronLeft, Tag } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -67,7 +67,7 @@ export default async function ProjectPage({
 
           <div className="flex items-center gap-x-6 gap-y-2">
             <div className="flex items-center gap-1.5">
-              <CalendarDaysIcon
+              <CalendarDays
                 className="size-4 shrink-0 text-foreground stroke-2"
                 aria-hidden
               />
