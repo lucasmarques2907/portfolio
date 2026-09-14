@@ -9,9 +9,10 @@ summary: "Gerador de site estático que gera páginas HTML a partir de arquivos 
 isFeatured: true
 ---
 
-# static-site-generator
-
 ## Sobre
 
-Este é um projeto do curse de backend da plataforma [Boot.dev](https://boot.dev).
-O objetivo desse projeto é entender como utilizar o modulo `os`, como fazer conversão de arquivos e praticar programação orientada a objetos.
+Gerador de site estático que gera páginas HTML a partir de arquivos markdown, feito com o objetivo de aprender a utilização do módulo `os`, fazer conversão de arquivos e programação orientada a objetos.
+
+## Tech Stack
+
+- Python @ 3.13

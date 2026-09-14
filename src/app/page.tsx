@@ -1,3 +1,4 @@
+import Dashboard from "@/components/sections/Dashboard";
 import Experiences from "@/components/sections/Experiences";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import Hero from "@/components/sections/Hero";
@@ -9,6 +10,7 @@ export default function Home() {
         <Hero />
         <Experiences />
         <FeaturedProjects />
+        <Dashboard />
       </div>
     </main>
   );

@@ -9,8 +9,6 @@ summary: "Pacote Dart simples para obter dados de endereço no Brasil a partir d
 isFeatured: true
 ---
 
-# cep_fetcher
-
 ## Funcionalidades
 
 - Obtém dados de endereço (logradouro, bairro, cidade, estado) a partir de um CEP, utilizando múltiplas APIs:
