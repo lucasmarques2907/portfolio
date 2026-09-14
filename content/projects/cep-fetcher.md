@@ -2,10 +2,10 @@
 title: "CEP Fetcher"
 createdAt: "2025-06-25"
 github: "https://github.com/lucasmarques2907/cep_fetcher"
-tags: ["dart", "flutter", "github-actions"]
-image: "/projects/cep-fetcher.png"
-imageAlt: "Tela do app mostrando o resultado da busca"
-summary: "Pesquisador de CEP para Flutter"
+tags: ["dart", "flutter", "github-actions", "api"]
+image: "/projects/cep-fetcher.jpg"
+imageAlt: "Preview do repositório cep_fetcher no GitHub"
+summary: "Pacote Dart simples para obter dados de endereço no Brasil a partir de um CEP usando múltiplas APIs."
 isFeatured: true
 ---
 
@@ -41,10 +41,10 @@ void getAddress() async {
 }
 ```
 
-
 ### Parâmetros Disponíveis
 
 A função `fetchCepData` aceita os seguintes parâmetros opcionais:
+
 - `timeout`: `Duration` - Define o tempo máximo para cada requisição de API. o intervalo permitido é de 1 a 10 segundos. O valor padrão é `Duration(seconds: 3)`.
 - `bypassCache`: `bool` - Se `true`, ignora o cache interno e força uma nova consulta às APIs mesmo que o CEP já tenha sido resolvido anteriormente. Útil em cenários onde os dados podem ter sido atualizados. O valor padrão é `false`;
 
