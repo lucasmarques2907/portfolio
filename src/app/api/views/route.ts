@@ -1,4 +1,4 @@
-import { bumpCounter, cleanupRateLimits, readCounter } from "@/lib/counter";
+import { bumpCounter, readCounter } from "@/lib/counter";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
@@ -6,15 +6,13 @@ export const dynamic = "force-dynamic";
 const CONFIG = {
   scope: "views",
   slug: "site",
-  limit: 1,
-  windowSeconds: 1,
+  limit: 30,
+  windowSeconds: 10,
 };
 
 export async function POST() {
   try {
     const result = await bumpCounter(CONFIG);
-
-    if (Math.random() < 0.01) await cleanupRateLimits();
 
     return NextResponse.json({
       count: result.count,

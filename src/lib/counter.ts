@@ -1,14 +1,13 @@
-import { sql } from "./db";
-import { getClientHash } from "./client-id";
+import { sql } from "@/lib/db";
 
-type BumbOptions = {
+type BumpOptions = {
   scope: string;
   slug: string;
   limit: number;
   windowSeconds: number;
 };
 
-export type BumbResult = {
+export type BumpResult = {
   count: number;
   allowed: boolean;
   remaining: number;
@@ -20,13 +19,11 @@ export async function bumpCounter({
   slug,
   limit,
   windowSeconds,
-}: BumbOptions): Promise<BumbResult> {
-  const ipHash = await getClientHash();
-
+}: BumpOptions): Promise<BumpResult> {
   const limitRows = await sql`
-    INSERT INTO rate_limits (scope, ip_hash, hits, window_start)
-    VALUES (${scope}, ${ipHash}, 1, now())
-    ON CONFLICT (scope, ip_hash) DO UPDATE
+    INSERT INTO rate_limits (scope, hits, window_start)
+    VALUES (${scope}, 1, now())
+    ON CONFLICT (scope) DO UPDATE
       SET
         hits = CASE
           WHEN EXTRACT(EPOCH FROM now() - rate_limits.window_start) >= ${windowSeconds}
@@ -74,10 +71,4 @@ export async function bumpCounter({
 export async function readCounter(slug: string): Promise<number> {
   const rows = await sql`SELECT count FROM counters WHERE slug = ${slug}`;
   return Number(rows[0]?.count ?? 0);
-}
-
-export async function cleanupRateLimits(): Promise<void> {
-  await sql`
-  DELETE FROM rate_limits WHERE window_start < now() - interval '1 day'
-  `.catch(() => {});
 }
