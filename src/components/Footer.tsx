@@ -1,0 +1,35 @@
+import { socials } from "@/lib/links";
+import { SessionTimer } from "./SessionTimer";
+
+export function Footer() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="m-auto mx-5 mb-5 bg-crust text-subtext0 border-surface0/20 flex h-auto flex-col items-center justify-center gap-y-3 rounded-lg border p-5 text-sm md:flex-row md:justify-between md:gap-y-0">
+      <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:justify-start">
+        <span className="whitespace-nowrap">
+          &copy; {year} Lucas Vinícius Marques
+        </span>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:justify-end">
+        <SessionTimer />
+        <ul className="flex items-center gap-3">
+          {socials.map(({ key, label, href, Icon }) => (
+            <li key={key}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="block text-foreground/60 transition-colors hover:text-primary"
+              >
+                <Icon className="size-4" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </footer>
+  );
+}
