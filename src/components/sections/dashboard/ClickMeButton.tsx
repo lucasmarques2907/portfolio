@@ -83,7 +83,7 @@ export function ClickMeButton() {
   const locked = cooldown > 0;
 
   return (
-    <div className='border-surface0 bg-base relative flex flex-col justify-between rounded-xl border p-4 shadow-lg'>
+    <div className='border-surface0 bg-base relative flex flex-col justify-between rounded-xl border p-4 shadow-lg col-span-1 md:col-span-2'>
       <div className='group absolute top-3 right-3'>
         <button
           type='button'

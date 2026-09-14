@@ -8,7 +8,7 @@ export function RecentCommitsSkeleton() {
     <div
       role='status'
       aria-label='Carregando commits'
-      className='border-surface0 bg-base flex items-center justify-center rounded-xl border p-4 shadow-lg lg:col-span-2'
+      className='border-surface0 bg-base flex items-center justify-center rounded-xl border p-4 shadow-lg col-span-1 md:col-span-2 lg:col-span-4'
     >
       <LoaderCircle
         size={24}
@@ -24,7 +24,7 @@ export async function RecentCommits() {
   const username = process.env.GITHUB_USERNAME ?? "";
 
   return (
-    <div className='border-surface0 bg-base rounded-xl flex flex-col border p-4 shadow-lg lg:col-span-2'>
+    <div className='border-surface0 bg-base rounded-xl flex flex-col border p-4 shadow-lg col-span-1 md:col-span-2 lg:col-span-4'>
       <div className='text-text mb-3 flex items-center justify-between gap-2 text-sm'>
         <h3 className='flex items-center gap-2 font-semibold'>
           <Activity size={16} className='text-primary' aria-hidden='true' />
