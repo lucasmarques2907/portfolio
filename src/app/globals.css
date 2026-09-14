@@ -149,3 +149,28 @@
   color: var(--color-subtext0);
   margin-bottom: 1rem;
 }
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.7);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--drift) * 0.15), -14px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--drift)), -120px) scale(1);
+  }
+}
+
+.float-up {
+  animation: float-up 1.1s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-up {
+    animation-duration: 1ms;
+  }
+}
