@@ -4,16 +4,20 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypePrettyCode from "rehype-pretty-code";
 
-export async function markdownToHtml(markdown: string) {
-  const file = await unified()
-    .use(remarkParse)
-    .use(remarkRehype)
-    .use(rehypePrettyCode, {
-      theme: "catppuccin-mocha",
-      keepBackground: false,
-    })
-    .use(rehypeStringify)
-    .process(markdown);
+const processor = unified()
+  .use(remarkParse)
+  .use(remarkRehype)
+  .use(rehypePrettyCode, {
+    theme: {
+      latte: "catppuccin-latte",
+      frappe: "catppuccin-frappe",
+      macchiato: "catppuccin-macchiato",
+      mocha: "catppuccin-mocha",
+    },
+    keepBackground: false,
+  })
+  .use(rehypeStringify);
 
-  return String(file);
+export async function markdownToHtml(markdown: string) {
+  return String(await processor.process(markdown));
 }

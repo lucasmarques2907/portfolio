@@ -1,0 +1,89 @@
+:root,
+.latte {
+  color-scheme: light;
+}
+
+.frappe,
+.macchiato,
+.mocha {
+  color-scheme: dark;
+}
+
+:root {
+  --primary: var(--catppuccin-color-lavender);
+}
+
+[data-primary="rosewater"] { --primary: var(--catppuccin-color-rosewater); }
+[data-primary="flamingo"]  { --primary: var(--catppuccin-color-flamingo); }
+[data-primary="pink"]      { --primary: var(--catppuccin-color-pink); }
+[data-primary="mauve"]     { --primary: var(--catppuccin-color-mauve); }
+[data-primary="red"]       { --primary: var(--catppuccin-color-red); }
+[data-primary="maroon"]    { --primary: var(--catppuccin-color-maroon); }
+[data-primary="peach"]     { --primary: var(--catppuccin-color-peach); }
+[data-primary="yellow"]    { --primary: var(--catppuccin-color-yellow); }
+[data-primary="green"]     { --primary: var(--catppuccin-color-green); }
+[data-primary="teal"]      { --primary: var(--catppuccin-color-teal); }
+[data-primary="sky"]       { --primary: var(--catppuccin-color-sky); }
+[data-primary="sapphire"]  { --primary: var(--catppuccin-color-sapphire); }
+[data-primary="blue"]      { --primary: var(--catppuccin-color-blue); }
+[data-primary="lavender"]  { --primary: var(--catppuccin-color-lavender); }
+
+@theme inline {
+  --color-background: var(--catppuccin-color-base);
+  --color-foreground: var(--catppuccin-color-text);
+  --color-muted: var(--catppuccin-color-subtext1);
+  --color-primary: var(--primary);
+  --color-surface: var(--catppuccin-color-surface0);
+  --color-border: var(--catppuccin-color-surface0);
+}
+
+@theme {
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+html {
+  background-color: var(--catppuccin-color-base);
+  color: var(--catppuccin-color-text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-theme-transition],
+  [data-theme-transition] *,
+  [data-theme-transition] *::before,
+  [data-theme-transition] *::after {
+    transition-property:
+      color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke;
+    transition-duration: 220ms;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-theme-transition] [data-theme-animate="transform"] {
+    transition-property: transform;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+  }
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--catppuccin-color-crust);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--catppuccin-color-mantle);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+:root {
+  accent-color: var(--primary);
+  caret-color: var(--primary);
+}
