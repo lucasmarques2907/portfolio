@@ -47,7 +47,7 @@ export default async function ProjectPage({
   const html = await markdownToHtml(project.content);
 
   return (
-    <main className="flex-1 py-8 px-0 md:px-5">
+    <main className="flex-1 py-8 px-4 md:px-0">
       <Link
         href="/projects"
         className="inline-flex items-center gap-1.5 text-sm text-foreground/60 transition-colors hover:text-primary"
