@@ -83,7 +83,7 @@ export function ClickMeButton() {
   const locked = cooldown > 0;
 
   return (
-    <div className='border-surface0 bg-base relative flex flex-col justify-between rounded-xl border p-4 shadow-lg col-span-1 md:col-span-2'>
+    <div className='border-surface0 bg-base relative flex flex-col justify-between rounded-xl border p-4 shadow-lg md:col-span-3 lg:col-span-1'>
       <div className='group absolute top-3 right-3'>
         <button
           type='button'
@@ -129,8 +129,8 @@ export function ClickMeButton() {
             ))}
           </div>
 
-          <span className='text-primary block text-4xl font-bold tabular-nums'>
-            {display === null ? "---.---" : display.toLocaleString("pt-BR")}
+          <span className='text-primary block text-3xl font-bold tabular-nums'>
+            {display === null ? "-" : display.toLocaleString("pt-BR")}
           </span>
         </div>
 

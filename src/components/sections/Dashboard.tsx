@@ -5,15 +5,18 @@ import {
   RecentCommits,
   RecentCommitsSkeleton,
 } from "./dashboard/RecentCommits";
+import { ThemePickerCard } from "../theme/ThemePicker";
 
 export default function Dashboard() {
   return (
-    <section className='px-4 md:px-0'>
-      <h2 className='sr-only'>Dashboard</h2>
+    <section className="px-4 md:px-0">
+      <h2 className="sr-only">Dashboard</h2>
 
-      <div className='grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-4'>
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
+        <ThemePickerCard className="md:col-span-1 lg:col-span-2" />
+
         <Location />
-        
+
         <ClickMeButton />
 
         <Suspense fallback={<RecentCommitsSkeleton />}>

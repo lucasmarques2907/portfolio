@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { X } from "lucide-react";
 import { navLinks, navSecondary } from "@/lib/links";
+import { ThemePicker } from "./theme/ThemePicker";
 
 export function NavDrawer({
   open,
@@ -59,6 +60,10 @@ export function NavDrawer({
             <X className="size-5" />
           </button>
         </div>
+
+        <ThemePicker tabIndex={open ? 0 : -1} className="mt-8" />
+
+        <div className="my-6 border-t border-surface0" />
 
         <nav className="mt-8">
           <ul className="space-y-4">

@@ -34,7 +34,7 @@ export function Location() {
   const isDay = hour >= 6 && hour < 18;
 
   return (
-    <div className='border-surface0 bg-base flex flex-col rounded-xl border p-4 shadow-lg col-span-1 md:col-span-2'>
+    <div className='border-surface0 bg-base flex flex-col rounded-xl border p-4 shadow-lg md:col-span-2 lg:col-span-2'>
       <h3 className='text-text mb-3 flex items-center gap-2 text-sm font-semibold'>
         <MapPin size={16} className='text-primary' aria-hidden='true' />
         Onde estou 📍
