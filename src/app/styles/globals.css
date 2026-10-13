@@ -126,6 +126,37 @@
   margin-bottom: 1rem;
 }
 
+.markdown table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.markdown th,
+.markdown td {
+  border: 1px solid var(--catppuccin-color-surface0);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.markdown th {
+  background-color: var(--catppuccin-color-crust);
+  color: var(--catppuccin-color-text);
+  font-weight: 700;
+}
+
+.markdown td {
+  color: var(--catppuccin-color-subtext1);
+}
+
+.markdown tbody tr:nth-child(even) {
+  background-color: var(--catppuccin-color-mantle);
+}
+
 @keyframes float-up {
   0% {
     opacity: 0;
