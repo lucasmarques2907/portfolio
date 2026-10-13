@@ -1,6 +1,6 @@
 ---
 title: "GPU Price Scraper"
-createdAt: "2025-08-28"
+createdAt: "2026-08-28"
 github: "https://github.com/lucasmarques2907/gpu-price-scraper"
 tags: ["python", "cli"]
 image: "/projects/gpu-price-scraper.jpg"
