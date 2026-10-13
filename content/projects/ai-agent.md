@@ -1,6 +1,6 @@
 ---
 title: "AI Agent"
-createdAt: "2025-08-20"
+createdAt: "2026-08-20"
 github: "https://github.com/lucasmarques2907/ai-agent"
 tags: ["python", "cli", "api", "ai"]
 image: "/projects/ai-agent.jpg"
